@@ -1,9 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>JavaScript for Kids</title>
-  </head>
-  <body>
-    <script src="word-guess.js"></script>
-  </body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GUESS WORD GAME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="icon" href="https://www.freeiconspng.com/uploads/spongebob-squarepants-transparent-background-19.png">
+    </head>
+
+    <body>
+        <!--Main Heading-->
+        <div class="heading">
+            <h1>GUESS WORD</h1>
+        </div>
+
+        <div class="background">
+            <div class="container">
+
+                <!--Changing Image based on correct answers-->
+                <h2>Press Any Key To Guess This Word!</h2>
+                <div>
+                    <img id="image" style="height: 200px; width: 200px;" src="./assets/images/tvv.png" width="40%" height="200">
+                </div>
+
+                <!--Current Word Container-->
+                <div>
+                    <h3 id="currentword">_ _ _ _ _</h3>
+                </div>
+                <div id="scoreboard">
+                    <!--Guesses left Container-->
+                    <div class="sidebar">
+                        <h3>GUESSES LEFT:
+                            <span id="guessesremaining"></span>
+                        </h3>
+                    </div>
+
+                    <!--Wins counter Container-->
+                    <div class="sidebar">
+                        <h3>WINS:
+                            <span id="winstracker"></span>
+                        </h3>
+                    </div>
+                    <!--Loss counter Container-->
+                    <div class="sidebar">
+                        <h3>LOSSES:
+                            <span id="losstracker"></span>
+                        </h3>
+                    </div>
+
+                    <!--Wrong guesses container-->
+                    <div class="sidebar">
+                        <h3>LETTERS YOU GUESSED WRONG:
+                            <span id="playerguesses"></span>
+                        </h3>
+                    </div>
+                    <div>
+                      <a ondblclick="change(this.id);"  id="a"><img class="alph"  src="assets/images/a.png"></a>
+                      <a ondblclick="change(this.id);"  id="b"><img class="alph"  src="assets/images/b.png"></a>
+                      <a ondblclick="change(this.id);"  id="c"><img class="alph"  src="assets/images/c.png"></a>
+                      <a ondblclick="change(this.id);"  id="d"><img class="alph"  src="assets/images/d.png"></a>
+                      <a ondblclick="change(this.id);"  id="e"><img class="alph"  src="assets/images/e.png"></a>
+                      <a ondblclick="change(this.id);"  id="f"><img class="alph"  src="assets/images/f.png"></a>
+                      <a ondblclick="change(this.id);"  id="g"><img class="alph"  src="assets/images/g.png"></a>
+                      <a ondblclick="change(this.id);"  id="h"><img class="alph"  src="assets/images/h.png"></a>
+                      <a ondblclick="change(this.id);"  id="i"><img class="alph"  src="assets/images/i"></a>
+                      <a ondblclick="change(this.id);"  id="j"><img class="alph"  src="assets/images/j.png"></a>
+                      <a ondblclick="change(this.id);"  id="k"><img class="alph"  src="assets/images/k.png"></a>
+                      <a ondblclick="change(this.id);"  id="l"><img class="alph"  src="assets/images/l.png"></a>
+                      <a ondblclick="change(this.id);"  id="m"><img class="alph"  src="assets/images/m.png"></a>
+                      <a ondblclick="change(this.id);"  id="n"><img class="alph"  src="assets/images/n.png"></a>
+                      <a ondblclick="change(this.id);"  id="o"><img class="alph"  src="assets/images/o.png"></a>
+                      <a ondblclick="change(this.id);"  id="p"><img class="alph"  src="assets/images/p.png"></a>
+                      <a ondblclick="change(this.id);"  id="q"><img class="alph"  src="assets/images/q.png"></a>
+                      <a ondblclick="change(this.id);"  id="r"><img class="alph"  src="assets/images/r.png"></a>
+                      <a ondblclick="change(this.id);"  id="s"><img class="alph"  src="assets/images/s.png"></a>
+                      <a ondblclick="change(this.id);"  id="t"><img class="alph"  src="assets/images/t.png"></a>
+                      <a ondblclick="change(this.id);"  id="u"><img class="alph"  src="assets/images/u.png"></a>
+                      <a ondblclick="change(this.id);"  id="v"><img class="alph"  src="assets/images/v.png"></a>
+                      <a ondblclick="change(this.id);"  id="w"><img class="alph"  src="assets/images/w.png"></a>
+                      <a ondblclick="change(this.id);"  id="x"><img class="alph"  src="assets/images/x.png"></a>
+                      <a ondblclick="change(this.id);"  id="y"><img class="alph"  src="assets/images/y.png"></a>
+                      <a ondblclick="change(this.id);"  id="z"><img class="alph"  src="assets/images/z.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--AUDIO FILES-->
+        <div>
+            <!--arthur-->
+            <audio id="arthur">
+                <source src="./assets/audio/arthur.mp3" type="audio/mp3">
+            </audio>
+            <!--rugrats-->
+            <audio id="rugrats">
+                <source src="./assets/audio/rugrats.mp3" type="audio/mp3">
+            </audio>
+            <!--simpsons-->
+            <audio id="simpsons">
+                <source src="./assets/audio/simpsons.mp3" type="audio/mp3">
+            </audio>
+            <!--scoobydoo-->
+            <audio id="scoobydoo">
+                <source src="./assets/audio/scoobydoo.mp3" type="audio/mp3">
+            </audio>
+            <!--spongebob-->
+            <audio id="spongebob">
+                <source src="./assets/audio/spongebob.mp3" type="audio/mp3">
+            </audio>
+            <!--danny-->
+            <audio id="danny">
+                <source src="./assets/audio/danny.mp3" type="audio/mp3">
+            </audio>
+            <!--teentitans-->
+            <audio id="teent">
+                <source src="./assets/audio/teentitans.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+
+
+
+        <script src="assets/javascript/game.js"></script>
+
+    </body>
+
 </html>
